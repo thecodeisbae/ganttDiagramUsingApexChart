@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Gantt" content="Gantt diagram" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>GANTT DIAGRAM</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <style>
+        @font-face {
+            font-family: Dosis;
+            src: url('Dosis.ttf') format('truetype');
+        }
+        
+        body {
+            font-family: Dosis;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h3>Gantt diagram</h3>
+        <hr>
+        <div id="chart">
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+    <script>
+        $(function() {
+            var options = {
+                series: [{
+                    name: 'Bob',
+                    data: [{
+                        x: 'Design',
+                        y: [
+                            new Date('2019-03-05').getTime(),
+                            new Date('2019-03-08').getTime()
+                        ]
+                    }, {
+                        x: 'Code',
+                        y: [
+                            new Date('2019-03-02').getTime(),
+                            new Date('2019-03-05').getTime()
+                        ]
+                    }, {
+                        x: 'Code',
+                        y: [
+                            new Date('2019-03-05').getTime(),
+                            new Date('2019-03-07').getTime()
+                        ]
+                    }, {
+                        x: 'Test',
+                        y: [
+                            new Date('2019-03-03').getTime(),
+                            new Date('2019-03-09').getTime()
+                        ]
+                    }, {
+                        x: 'Test',
+                        y: [
+                            new Date('2019-03-08').getTime(),
+                            new Date('2019-03-11').getTime()
+                        ]
+                    }, {
+                        x: 'Validation',
+                        y: [
+                            new Date('2019-03-11').getTime(),
+                            new Date('2019-03-16').getTime()
+                        ]
+                    }, {
+                        x: 'Design',
+                        y: [
+                            new Date('2019-03-01').getTime(),
+                            new Date('2019-03-03').getTime()
+                        ],
+                    }]
+                }, {
+                    name: 'Joe',
+                    data: [{
+                        x: 'Design',
+                        y: [
+                            new Date('2019-03-02').getTime(),
+                            new Date('2019-03-05').getTime()
+                        ]
+                    }, {
+                        x: 'Test',
+                        y: [
+                            new Date('2019-03-06').getTime(),
+                            new Date('2019-03-16').getTime()
+                        ],
+                        goals: [{
+                            name: 'Break',
+                            value: new Date('2019-03-10').getTime(),
+                            strokeColor: '#CD2F2A'
+                        }]
+                    }, {
+                        x: 'Code',
+                        y: [
+                            new Date('2019-03-03').getTime(),
+                            new Date('2019-03-07').getTime()
+                        ]
+                    }, {
+                        x: 'Deployment',
+                        y: [
+                            new Date('2019-03-20').getTime(),
+                            new Date('2019-03-22').getTime()
+                        ]
+                    }, {
+                        x: 'Design',
+                        y: [
+                            new Date('2019-03-10').getTime(),
+                            new Date('2019-03-16').getTime()
+                        ]
+                    }]
+                }, {
+                    name: 'Dan',
+                    data: [{
+                        x: 'Code',
+                        y: [
+                            new Date('2019-03-10').getTime(),
+                            new Date('2019-03-17').getTime()
+                        ]
+                    }, {
+                        x: 'Validation',
+                        y: [
+                            new Date('2019-03-05').getTime(),
+                            new Date('2019-03-09').getTime()
+                        ],
+                        goals: [{
+                            name: 'Break',
+                            value: new Date('2019-03-07').getTime(),
+                            strokeColor: '#CD2F2A'
+                        }]
+                    }, ]
+                }],
+                chart: {
+                    height: 450,
+                    type: 'rangeBar',
+                    fontFamily: 'Dosis'
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: true,
+                        barHeight: '80%'
+                    }
+                },
+                xaxis: {
+                    type: 'datetime'
+                },
+                stroke: {
+                    width: 1
+                },
+                fill: {
+                    type: 'solid',
+                    opacity: 0.6
+                },
+                legend: {
+                    position: 'top',
+                    horizontalAlign: 'left'
+                }
+            };
+
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+        });
+    </script>
+</body>
+
+</html>
